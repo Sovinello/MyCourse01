@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MyCourse
 {
@@ -16,7 +17,9 @@ namespace MyCourse
         public void ConfigureServices(IServiceCollection services)
         {
             //Ciò dimostra che questo framework è fortemente modulare;
-            services.AddMvc();
+            //SetCompatibilityVersion => esplicitamente si dichiara di utilizzare la versione 2.2
+            //e quindi di sfruttare migliorie del componente interno (servizio) in questione
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
