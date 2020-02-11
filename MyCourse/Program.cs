@@ -1,7 +1,12 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace MyCourse
 {
@@ -9,11 +14,8 @@ namespace MyCourse
     {
         public static void Main(string[] args)
         {
-            string arg01 = args.FirstOrDefault();
             CreateWebHostBuilder(args).Build().Run();
         }
-
-        //KESTREL => webserver di default di .netCore
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
